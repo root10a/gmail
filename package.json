@@ -1,0 +1,19 @@
+{
+  "name": "gmail-paypal-parser",
+  "version": "1.0.0",
+  "description": "Read your own Gmail inbox and parse genuine PayPal invoice / money-request notification emails.",
+  "type": "module",
+  "bin": {
+    "paypal-parser": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "auth": "node index.js auth"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "googleapis": "^140.0.0",
+    "node-html-parser": "^6.1.13"
+  },
+  "license": "MIT"
+}
