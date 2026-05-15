@@ -50,7 +50,7 @@ function extractSender(subject = '', body = '') {
 
 function extractInvoiceNumber(subject = '', body = '') {
   const m =
-    `${subject}\n${body}`.match(/invoice\s*(?:#|number|no\.?|id)?\s*[:#]?\s*([A-Za-z0-9\-]+)/i);
+    `${subject}\n${body}`.match(/invoice\s*(?:#|number|no\.?|id)\s*[:#]?\s*([A-Za-z0-9][A-Za-z0-9\-]*)/i);
   return m ? m[1] : null;
 }
 
