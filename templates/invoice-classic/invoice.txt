@@ -1,0 +1,26 @@
+{{company_name}} - Invoice {{invoice_number}}
+
+Billed to: {{customer_name}} ({{customer_email}})
+
+Invoice #: {{invoice_number}}
+Issued:    {{issue_date}}
+Due:       {{due_date}}
+
+------------------------------------------------------------
+Description                              Qty        Amount
+------------------------------------------------------------
+{{item_description}}                     {{item_qty}}   {{currency}}{{item_amount}}
+------------------------------------------------------------
+
+Subtotal:        {{currency}}{{subtotal}}
+Tax ({{tax_rate}}%): {{currency}}{{tax}}
+Total due:       {{currency}}{{total}}
+
+View and pay your invoice:
+{{payment_url}}
+
+Questions about this invoice? Just reply to this email, or
+contact us at {{support_email}}.
+
+{{company_name}}
+{{company_address}}

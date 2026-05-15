@@ -1,0 +1,29 @@
+{{company_name}}
+Invoice {{invoice_number}}
+
+AMOUNT DUE: {{currency}}{{total}}
+Due by:     {{due_date}}
+
+Pay this invoice:
+{{payment_url}}
+
+Billed to:
+{{customer_name}}
+{{customer_email}}
+
+Issued: {{issue_date}}
+Due:    {{due_date}}
+
+------------------------------------------------------------
+{{item_description}} x {{item_qty}}            {{currency}}{{item_amount}}
+------------------------------------------------------------
+Subtotal:        {{currency}}{{subtotal}}
+Tax ({{tax_rate}}%): {{currency}}{{tax}}
+Total:           {{currency}}{{total}}
+
+You are receiving this email because you have an account
+with {{company_name}}.
+
+{{company_name}}
+{{company_address}}
+{{support_email}}

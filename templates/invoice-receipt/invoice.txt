@@ -1,0 +1,22 @@
+{{company_name}}
+Receipt for invoice {{invoice_number}}
+
+Paid on {{issue_date}}
+TOTAL PAID: {{currency}}{{total}}
+
+------------------------------------------------------------
+{{item_description}} ({{item_qty}})            {{currency}}{{item_amount}}
+------------------------------------------------------------
+Subtotal:        {{currency}}{{subtotal}}
+Tax ({{tax_rate}}%): {{currency}}{{tax}}
+Total paid:      {{currency}}{{total}}
+
+Download PDF receipt:
+{{payment_url}}
+
+Billed to: {{customer_name}} ({{customer_email}})
+
+Need help? Reply to this email or contact {{support_email}}.
+
+{{company_name}}
+{{company_address}}

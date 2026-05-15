@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>Invoice {{invoice_number}} from {{company_name}}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f4f5; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  <!-- Preheader: shown in inbox preview, hidden in body -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#f4f4f5;">
+    Invoice {{invoice_number}} for {{currency}}{{total}} is ready. Due {{due_date}}.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f5;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:#ffffff; border:1px solid #e4e4e7; border-radius:6px;">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding:32px 40px 16px 40px; font-family:Arial,Helvetica,sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="font-size:20px; font-weight:bold; color:#18181b;">{{company_name}}</td>
+                  <td align="right" style="font-size:22px; font-weight:bold; color:#18181b;">Invoice</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Meta -->
+          <tr>
+            <td style="padding:8px 40px 24px 40px; font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#3f3f46;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding:4px 0;">Billed to<br><strong style="color:#18181b;">{{customer_name}}</strong><br>{{customer_email}}</td>
+                  <td align="right" style="padding:4px 0;">
+                    Invoice #: <strong style="color:#18181b;">{{invoice_number}}</strong><br>
+                    Issued: {{issue_date}}<br>
+                    Due: {{due_date}}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Line items -->
+          <tr>
+            <td style="padding:0 40px; font-family:Arial,Helvetica,sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px;">
+                <tr style="border-bottom:2px solid #e4e4e7;">
+                  <td style="padding:10px 0; color:#71717a; font-weight:bold;">Description</td>
+                  <td align="center" style="padding:10px 0; color:#71717a; font-weight:bold;">Qty</td>
+                  <td align="right" style="padding:10px 0; color:#71717a; font-weight:bold;">Amount</td>
+                </tr>
+                <!-- Repeat this row per line item -->
+                <tr style="border-bottom:1px solid #f4f4f5;">
+                  <td style="padding:14px 0; color:#18181b;">{{item_description}}</td>
+                  <td align="center" style="padding:14px 0; color:#3f3f46;">{{item_qty}}</td>
+                  <td align="right" style="padding:14px 0; color:#18181b;">{{currency}}{{item_amount}}</td>
+                </tr>
+                <!-- /Repeat -->
+              </table>
+            </td>
+          </tr>
+
+          <!-- Totals -->
+          <tr>
+            <td style="padding:16px 40px 8px 40px; font-family:Arial,Helvetica,sans-serif; font-size:14px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="right" style="padding:4px 0; color:#71717a;">Subtotal</td>
+                  <td align="right" width="120" style="padding:4px 0; color:#18181b;">{{currency}}{{subtotal}}</td>
+                </tr>
+                <tr>
+                  <td align="right" style="padding:4px 0; color:#71717a;">Tax ({{tax_rate}}%)</td>
+                  <td align="right" style="padding:4px 0; color:#18181b;">{{currency}}{{tax}}</td>
+                </tr>
+                <tr>
+                  <td align="right" style="padding:12px 0 4px 0; font-size:16px; font-weight:bold; color:#18181b; border-top:2px solid #e4e4e7;">Total due</td>
+                  <td align="right" style="padding:12px 0 4px 0; font-size:16px; font-weight:bold; color:#18181b; border-top:2px solid #e4e4e7;">{{currency}}{{total}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          <tr>
+            <td align="center" style="padding:24px 40px 32px 40px; font-family:Arial,Helvetica,sans-serif;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="border-radius:5px; background-color:#18181b;">
+                    <a href="{{payment_url}}" target="_blank" style="display:inline-block; padding:13px 32px; font-family:Arial,Helvetica,sans-serif; font-size:15px; font-weight:bold; color:#ffffff; text-decoration:none; border-radius:5px;">View &amp; pay invoice</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 40px 28px 40px; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:#a1a1aa; border-top:1px solid #e4e4e7;">
+              {{company_name}}, {{company_address}}<br>
+              Questions about this invoice? Reply to this email or contact {{support_email}}.
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
