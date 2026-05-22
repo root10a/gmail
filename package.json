@@ -1,18 +1,17 @@
 {
   "name": "gmail-paypal-parser",
-  "version": "1.0.0",
-  "description": "Read your own Gmail inbox and parse genuine PayPal invoice / money-request notification emails.",
+  "version": "2.0.0",
+  "description": "Read your own Gmail inbox over IMAP and parse genuine PayPal invoice / money-request notification emails.",
   "type": "module",
   "bin": {
     "paypal-parser": "./index.js"
   },
   "scripts": {
-    "start": "node index.js",
-    "auth": "node index.js auth"
+    "start": "node index.js"
   },
   "dependencies": {
-    "@google-cloud/local-auth": "^3.0.1",
-    "googleapis": "^140.0.0",
+    "imapflow": "^1.0.164",
+    "mailparser": "^3.7.1",
     "node-html-parser": "^6.1.13"
   },
   "license": "MIT"

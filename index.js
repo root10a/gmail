@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import process from 'node:process';
-import { authorize } from './src/auth.js';
-import { fetchPaypalMessages } from './src/gmail.js';
+import { fetchPaypalMessages } from './src/imap.js';
 import { parseMessages } from './src/parser.js';
 
 function arg(name, fallback) {
@@ -10,23 +9,15 @@ function arg(name, fallback) {
 }
 
 async function main() {
-  const cmd = process.argv[2];
-  const auth = await authorize();
-
-  if (cmd === 'auth') {
-    console.log('Authorized. token.json saved.');
-    return;
-  }
-
   const days = Number(arg('days', '90'));
   const max = Number(arg('max', '50'));
   const onlyType = arg('type'); // invoice | money_request | payment_received
 
-  const messages = await fetchPaypalMessages(auth, { days, max });
+  const messages = await fetchPaypalMessages({ days, max });
   let parsed = parseMessages(messages);
   if (onlyType) parsed = parsed.filter((p) => p.type === onlyType);
 
-  if (arg('json') !== undefined || process.argv.includes('--json')) {
+  if (process.argv.includes('--json')) {
     console.log(JSON.stringify(parsed, null, 2));
     return;
   }
